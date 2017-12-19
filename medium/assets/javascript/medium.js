@@ -36,12 +36,64 @@
  *   and how to use it in JS. You will also need to download a sound bite
  */
 
-(function(){
+(function () {
 
   //jQuery equivelent to window.onload = function{}
   //code in here wont run until page loads
-  $(function(){
+  $(function () {
 
+    const resetButton = $("#reset");
+    const numOfResets = $("#num-resets");
+
+    const team1shootButton = $("#teamone-shoot");
+    const team1NumOfShots = $("#teamone-numshots");
+    const team1NumOfGoals = $("#teamone-numhits");
+
+    const team2shootButton = $("#teamtwo-shoot");
+    const team2NumOfShots = $("#teamtwo-numshots");
+    const team2NumOfGoals = $("#teamtwo-numhits");
+    const sound = new Audio('assets/sounds/HockeyStickSlap.wav');
+
+    resetButton.click(function () {
+      numOfResets.html(parseInt(numOfResets.html()) + 1);
+      team1NumOfShots.html(0);
+      team2NumOfShots.html(0);
+      team1NumOfGoals.html(0);
+      team2NumOfGoals.html(0);
+      $("body").css("background-color", "white");
+    })
+
+    team1shootButton.click(function () {
+      sound.play();
+      team1NumOfShots.html(parseInt(team1NumOfShots.html()) + 1);
+      min = Math.ceil(0);
+      max = Math.floor(1);
+      isHit = Math.floor(Math.random() * (max - min + 1)) + min;
+      console.log(isHit);
+      if (isHit === 1) {
+        team1NumOfGoals.html(parseInt(team1NumOfGoals.html()) + 1);
+        $("body").css("background-color", "red");
+      }
+      if (!isHit) {
+        $("body").css("background-color", "white");
+      }
+    })
+
+    team2shootButton.click(function () {
+      sound.play();
+      team2NumOfShots.html(parseInt(team2NumOfShots.html()) + 1);
+      min = Math.ceil(0);
+      max = Math.floor(1);
+      isHit = Math.floor(Math.random() * (max - min + 1)) + min;
+      console.log(isHit);
+      if (isHit === 1) {
+        team2NumOfGoals.html(parseInt(team2NumOfGoals.html()) + 1);
+        $("body").css("background-color", "yellow");
+      }
+      if (!isHit) {
+        $("body").css("background-color", "white");
+      }
+    })
 
 
   })

@@ -1,4 +1,4 @@
-(function(){
+(function () {
   /**
    * Using the LocalStorage API, save the contents of the text box
    * when users click the "save" button.
@@ -17,6 +17,15 @@
 
   var saveButton = $('#save-button');
   var loadButton = $('#load-button');
+
+  saveButton.click(function () {
+    localStorage.setItem('myText', getText());
+  })
+
+  loadButton.click(function () {
+    setText(localStorage.getItem('myText'));
+  })
+
 
   /**
    * Gets the text from the element for you
