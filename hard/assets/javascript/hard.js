@@ -44,7 +44,7 @@
         feedTemplateTitle.css("color", "rgb(51, 51, 51)");
       }
     })
-
+    ////Didnt have time to finish...
 
   })
 
