@@ -29,14 +29,23 @@
  *
  */
 
- (function(){
+(function () {
 
-   //jQuery equivelent to window.onload = function{}
-   //code in here wont run until page loads
-   $(function(){
+  //jQuery equivelent to window.onload = function{}
+  //code in here wont run until page loads
+  $(function () {
+
+    const feedTemplateTitle = $("#feedTemplateTitle");
+    feedTemplateTitle.click(function () {
+      console.log(feedTemplateTitle.css("color"));
+      if (feedTemplateTitle.css("color") === "rgb(51, 51, 51)") {
+        feedTemplateTitle.css("color", "red");
+      } else {
+        feedTemplateTitle.css("color", "rgb(51, 51, 51)");
+      }
+    })
 
 
+  })
 
-   })
-
- })();
+})();
